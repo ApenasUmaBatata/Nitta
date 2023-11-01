@@ -1,0 +1,21 @@
+const mysql = require("mysql");
+const db_host = process.env.DB_HOST;
+const db_user = process.env.DB_USER;
+const db_pass = process.env.DB_PASS;
+const db_name = process.env.DB_NAME;
+
+const connection = mysql.createConnection({
+  host: db_host,
+  user: db_user,
+  password: db_pass,
+  database: db_name,
+});
+connection.connect((err) => {
+  if (err) {
+    console.error("Erro ao conectar ao banco de dados:", err);
+  } else {
+    console.log("Conexão com o banco de dados MySQL estabelecida com sucesso!");
+  }
+});
+
+module.exports = connection;

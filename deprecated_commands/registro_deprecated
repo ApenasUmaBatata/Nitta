@@ -1,0 +1,50 @@
+const connection = require("../../configs/db");
+
+module.exports = {
+  config: {
+    name: "registrar",
+    aliases: ["registro"],
+  },
+  run: async (bot, message, args, tools) => {
+    const userId = message.author.id;
+    const guildId = message.guild.id;
+    connection.query(
+      `SELECT 1 FROM pessoa LIMIT 1`,
+      (error, results, fields) => {
+        if (error) {
+          console.log("Tabela pessoa não encontrada!");
+        } else {
+          connection.query(
+            `SELECT * FROM pessoa WHERE user_id = ? AND guild_id = ?`,
+            [userId, guildId],
+            (error, results, fields) => {
+              if (error) throw error;
+              if (results.length === 0) {
+                connection.query(
+                  `INSERT INTO pessoa (user_id, guild_id, last_claimed) VALUES (?, ?, ?)`,
+                  [userId, guildId, "1970-01-01 00:00:00"],
+                  (error, results, fields) => {
+                    if (error) throw error;
+                    message
+                      .reply("Você acabou de realizar seu registro")
+                      .then((repliedMessage) => {
+                        setTimeout(() => repliedMessage.delete(), 5000);
+                        setTimeout(() => message.delete(), 5000);
+                      });
+                  }
+                );
+              } else {
+                message
+                  .reply("Você já está registrada nesta guild.")
+                  .then((repliedMessage) => {
+                    setTimeout(() => repliedMessage.delete(), 5000);
+                    setTimeout(() => message.delete(), 5000);
+                  });
+              }
+            }
+          );
+        }
+      }
+    );
+  },
+};

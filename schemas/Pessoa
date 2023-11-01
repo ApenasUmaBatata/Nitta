@@ -1,0 +1,15 @@
+const mongoose = require("mongoose");
+
+const pessoaSchema = new mongoose.Schema({
+  user_id: String,
+  guild_id: String,
+  last_claimed: Date,
+  coins: Number,
+  gems: Number,
+  xp: Number,
+  frase: String,
+});
+
+const Pessoa = mongoose.model("pessoa", pessoaSchema);
+
+module.exports = Pessoa;
