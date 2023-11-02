@@ -7,6 +7,9 @@ const Pessoa = require("../../schemas/Pessoa");
 module.exports = async (bot, message, args) => {
   //#region mencionar o bot
   if (message.mentions.has(bot.user.id)) {
+    const guildId = message.guild.id;
+    const serverConfig = await ServerConfig.findOne({ guildId });
+    const prefix = serverConfig ? serverConfig.prefix : default_prefix;
     const embed = new EmbedBuilder()
       .setAuthor({
         name: `Você está perdido? Estou aqui para te ajudar!`,
@@ -18,7 +21,7 @@ module.exports = async (bot, message, args) => {
       })
       .setColor("#ff0066")
       .setDescription(
-        `Olá jovem guerreiro, estava em minha caminhada matinal e escutei por seus gritos, se estiver perdido use \`${default_prefix}ajuda\`. Lembrando, uma viagem pode ser muito perigosa se você estiver sozinho!`
+        `Olá jovem guerreiro, estava em minha caminhada matinal e escutei por seus gritos, se estiver perdido use \`${prefix}ajuda\`. Lembrando, uma viagem pode ser muito perigosa se você estiver sozinho!`
       );
     message.reply({ embeds: [embed] });
   }
