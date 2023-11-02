@@ -1,5 +1,6 @@
-//este registro é apenas para membros de chats em que o bot ja estava, membros que adentraram após o evento de guildMemberAdd não precisam utilizar o comando 
-const mongoose = require("mongoose");
+/**este registro é apenas para membros de chats em que o bot ja estava, membros que
+adentraram após o evento de guildMemberAdd não precisam utilizar o comando */
+//após a melhoria do messageCreate nao é mais necessário o comando de registro, a pessoa se registra ao enviar mensagem no servidor
 const Pessoa = require("../../schemas/Pessoa");
 
 module.exports = {
@@ -14,11 +15,9 @@ module.exports = {
     const gems = 0;
     const xp = 0;
 
-    // Verificar se o usuário já está registrado na guild
     Pessoa.findOne({ user_id: userId, guild_id: guildId })
       .then((result) => {
         if (!result) {
-          // Inserir um novo registro no MongoDB
           const novaPessoa = new Pessoa({
             user_id: userId,
             guild_id: guildId,

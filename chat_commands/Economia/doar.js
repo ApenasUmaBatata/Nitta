@@ -1,10 +1,10 @@
-const Pessoa = require("../../schemas/Pessoa"); // Certifique-se de que o modelo Pessoa esteja importado corretamente
+const Pessoa = require("../../schemas/Pessoa");
 const { default_prefix } = require("../../configs/config.json");
 
 module.exports = {
   config: {
     name: "pagar",
-    aliases: ["pay"],
+    aliases: ["pay","doar"],
   },
   run: async (bot, message, args, tools) => {
     if (args.length < 3) {
@@ -35,8 +35,6 @@ module.exports = {
 
       const currentCoins = targetData.coins || 0;
       const currentGems = targetData.gems || 0;
-
-      // Verificar se o autor do comando tem moedas/gems suficientes
       const authorData = await Pessoa.findOne({
         user_id: message.author.id,
         guild_id: message.guild.id,
@@ -50,8 +48,6 @@ module.exports = {
           "Você não tem moedas/gems suficientes para realizar essa operação."
         );
       }
-
-      // Atualizar o campo de moedas ou gems no documento do alvo
       await Pessoa.updateOne(
         {
           user_id: target.id,
@@ -64,8 +60,6 @@ module.exports = {
               : currentGems + amount,
         }
       );
-
-      // Atualizar o campo de moedas ou gems no documento do autor
       await Pessoa.updateOne(
         {
           user_id: message.author.id,

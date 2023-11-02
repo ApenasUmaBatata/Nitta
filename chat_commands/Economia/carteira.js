@@ -23,8 +23,6 @@ module.exports = {
           `para que você possa ver a carteira dele!`;
 
     const guildId = message.guild.id;
-
-    // Consultar o MongoDB para encontrar a pessoa usando uma Promessa
     Pessoa.findOne({ user_id: userId, guild_id: guildId })
       .then((result) => {
         if (!result) {
@@ -46,7 +44,7 @@ module.exports = {
             .addFields(
               {
                 name: "Frase",
-                value: `\`${frase}\``, // Adicione um campo para a frase
+                value: `\`${frase}\``,
               },
               {
                 name: "Moedas sagradas",

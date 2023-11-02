@@ -8,7 +8,6 @@ module.exports = {
     aliases: ["sv"],
   },
   run: async (bot, message, args) => {
-    // Verificar se o ID do autor da mensagem é igual ao ID permitido
     if (message.author.id !== allowedUserId) {
       return message
         .reply("Desculpe, você não tem permissão para executar este comando.")

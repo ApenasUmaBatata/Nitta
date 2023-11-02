@@ -7,7 +7,7 @@ module.exports = {
   run: async (bot, message, args) => {
     const userId = message.author.id;
     const guildId = message.guild.id;
-    const frase = args.join(" "); // Junte todos os argumentos para formar a frase
+    const frase = args.join(" ");
 
     if (!frase) {
       return message.channel.send("Por favor, forneça uma frase para definir em seu perfil.");
@@ -24,8 +24,6 @@ module.exports = {
           "Você não está registrado no banco de dados. Utilize o comando `registrar` primeiro."
         );
       }
-
-      // Atualize a frase no documento do usuário
       await Pessoa.updateOne(
         { user_id: userId, guild_id: guildId },
         { frase: frase }

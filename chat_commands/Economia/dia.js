@@ -9,8 +9,6 @@ module.exports = {
   run: async (bot, message, args, tools) => {
     const userId = message.author.id;
     const guildId = message.guild.id;
-
-    // Verificar se o usuário já está registrado na guild
     Pessoa.findOne({ user_id: userId, guild_id: guildId })
       .then((result) => {
         if (!result) {
@@ -28,8 +26,6 @@ module.exports = {
             const somaNewCoins = result.coins + newCoins;
             const newGems = Math.floor(Math.random() * 10) + 1;
             const somaNewGems = result.gems + newGems;
-
-            // Atualizar os campos 'coins', 'gems' e 'last_claimed' no documento
             Pessoa.updateOne(
               { user_id: userId, guild_id: guildId },
               {

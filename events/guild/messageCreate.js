@@ -1,8 +1,11 @@
 const { EmbedBuilder } = require("discord.js");
 const { default_prefix } = require("../../configs/config.json");
+const ServerConfig = require("../../schemas/serverConfig")
 const Pessoa = require("../../schemas/Pessoa");
 
+
 module.exports = async (bot, message, args) => {
+  //#region mencionar o bot
   if (message.mentions.has(bot.user.id)) {
     const embed = new EmbedBuilder()
       .setAuthor({
@@ -19,10 +22,12 @@ module.exports = async (bot, message, args) => {
       );
     message.reply({ embeds: [embed] });
   }
+//#endregion
   //#region cadastro e xp por mensagem
   const userId = message.author.id;
-  if (!message.guild) return;
   const guildId = message.guild.id;
+  if (!message.guild) return;
+  
   const xpAmount = Math.floor(Math.random() * 50) + 0;
   const fra = "A pessoa não deixou uma frase aqui!"
 
@@ -34,9 +39,9 @@ module.exports = async (bot, message, args) => {
         const novaPessoa = new Pessoa({
           user_id: userId,
           guild_id: guildId,
-          coins: 0, // Defina o valor inicial das moedas, se necessário
-          gems: 0, // Defina o valor inicial das gemas, se necessário
-          xp: 0, // Defina o valor inicial da XP, se necessário
+          coins: 0, 
+          gems: 0, 
+          xp: 0, 
           frase: fra,
           last_claimed: new Date("1970-01-01T00:00:00"),
         });
@@ -49,20 +54,14 @@ module.exports = async (bot, message, args) => {
     .catch((error) => {
       console.error("Erro ao buscar registro existente:", error);
     });
-
-  // Verificar se o usuário já está registrado na guild (segunda verificação)
   Pessoa.findOne({ user_id: userId, guild_id: guildId })
     .then((result) => {
       if (!result) {
-        // O usuário não está registrado, você pode decidir como lidar com isso
       } else {
         const currentXp = result.xp || 0;
         const newXp = currentXp + xpAmount;
-
-        // Atualizar o campo 'xp' no documento
         Pessoa.updateOne({ user_id: userId, guild_id: guildId }, { xp: newXp })
           .then(() => {
-            // Sucesso na atualização do XP
           })
           .catch((error) => {
             console.error("Erro ao atualizar XP:", error);
@@ -72,20 +71,22 @@ module.exports = async (bot, message, args) => {
     .catch((error) => {
       console.error("Erro ao buscar registro existente:", error);
     });
-
+//#endregion
   //#region executar comandos
+  const serverConfig = await ServerConfig.findOne({ guildId });
+  const prefix = serverConfig ? serverConfig.prefix : default_prefix;
   const frases = [
-    `Não reconheci esse comando, de uma olhada em \`${default_prefix}ajuda\`!`,
-    `Esse comando pode não existir, de um olhada em \`${default_prefix}ajuda\`!`,
+    `Não reconheci esse comando, de uma olhada em \`${prefix}ajuda\`!`,
+    `Esse comando pode não existir, de um olhada em \`${prefix}ajuda\`!`,
   ];
   let fras = frases[Math.floor(Math.random() * frases.length)];
 
-  var args = message.content.substring(default_prefix.length).split(" ");
+  var args = message.content.substring(prefix.length).split(" ");
   let cmd = args.shift().toLowerCase();
   if (
     message.author.bot ||
     !message.guild ||
-    !message.content.startsWith(default_prefix)
+    !message.content.startsWith(prefix)
   )
     return;
 
