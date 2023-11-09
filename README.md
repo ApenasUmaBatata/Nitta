@@ -3,7 +3,6 @@
 ### Sumário
 
 - [Ram](#O-que-eu-sou)
-- [Comandos](#comandos-pt-br)
 - [Contatos criador](#Criador)
 
 ---
@@ -21,7 +20,7 @@ melhorar, com o desenvolvimento de novos sistemas como:
 - Entretenimento - em busca de atualização dos comandos de entretenimento.
 - Tornar os comandos acessiíveis para outras linguas
 
-### ---------------------------------------------------------------
+### ----------------------------------------------------------------------------
 - [Me convide para seu servidor](https://discord.com/api/oauth2/authorize?client_id=705547264537657465&permissions=8&scope=bot%20applications.commands)
 
 ---
