@@ -1,6 +1,7 @@
 const { EmbedBuilder } = require("discord.js");
 const { default_prefix } = require("../../configs/config.json");
 const { modouso } = require("../../configs/arquivos_json/modo_uso.json");
+const ServerConfig = require("../../schemas/serverConfig");
 
 module.exports = {
   config: {
@@ -8,6 +9,8 @@ module.exports = {
     aliases: ["moduso"],
   },
   run: async (bot, message, args) => {
+    const guildId = message.guild.id;
+    const serverConfig = await ServerConfig.findOne({ guildId });
     switch (args[0]) {
       //#region inicioCase
       case undefined: {
@@ -31,7 +34,7 @@ module.exports = {
           )
           .setImage("https://data.whicdn.com/images/287575135/original.gif")
           .setFooter({
-            text: `Digite '${default_prefix}modouso <CommandName>' para detalhes do comando!`,
+            text: `Digite '${serverConfig.prefix}modouso <CommandName>' para detalhes do comando!`,
             iconURL: message.author.avatarURL(),
           });
         message.reply({ embeds: [embed] });
@@ -40,7 +43,7 @@ module.exports = {
       //#endregion
       //#region começo case modouso
       case "expulsar": {
-        message.reply(`\`\`\`${default_prefix}${modouso.pt.expulsar}\`\`\``);
+        message.reply(`\`\`\`${serverConfig.prefix}${modouso.pt.administacao.expulsar}\`\`\``);
         break;
       }
       case "limpar": {

@@ -1,16 +1,34 @@
 {
   "modouso": {
     "pt": {
-      "expulsar": "expulsar [@pessoa] [motivo]",
-      "limpar": "limpar [quantidade, {max 100 mensagens}]",
-      "ajuda": "ajuda [NomeComando]",
-      "enquete": "enquete [#canal] [mensagem] e/ou enquete [mensagem]",
-      "filme": "filme [filme 1] [filme 2] [filme 3] [filme 4]",
-      "falar": "falar [#canal] [mensagem] e/ou falar [mensagem]",
-      "sorteio": "sorteio [tempo m/h/d] [canal] [item]",
-      "ação": "ação [nome da ação] [@pessoa]",
-      "calculo": "calculo [Numero] [variavel do calculo +/-/x/'/'] [Numero]",
-      "jokenpo": "jokenpo [pedra/papel/tesoura]"
+      "administacao": {
+        "expulsar": "expulsar [@pessoa] [motivo]",
+        "limpar": "limpar [Quantidade, {max 100 mensagens}]",
+        "enquete": "enquete [#canal] [mensagem] e/ou enquete [mensagem]",
+        "modificaveisadm":{
+          "setprefix":"prefix [Novo prefix]"
+        }
+      },
+      "economia": {
+        "carteira": "perfil [@pessoa] e/ou perfil {irá exibir o seu perfil}",
+        "dia": "diaria",
+        "pagar": "pagar [@pessoa] [quantidade] [moeda de troca {moedas ou gemas}]"
+      },
+      "entretenimento": {
+        "flip":"flip",
+        "falar": "falar [#canal] [mensagem] e/ou falar [mensagem]",
+        "ação": "ação [Nome da ação] [@pessoa] e/ou acao {para visualizar as ações disponiveis}"
+      },
+      "geral": {
+        "user":"userinfo [@pessoa] e/ou userinfo {para ver o seu perfil}",
+        "svinfo":"svinfo",
+        "moduso":"uso [NomeComando] e/ou moduso [NomeComando]",
+        "info":"info e/ou botinfo",
+        "ajuda": "ajuda [NomeComando]"
+      },
+      "modificaveis":{
+        "frase":"frase [Frase a ser mostrada]"
+      }
     }
   }
 }

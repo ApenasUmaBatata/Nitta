@@ -26,7 +26,6 @@ module.exports = (bot) => {
     "Economia",
     "Entretenimento",
     "Geral",
-    "Info",
     "Modificaveis"
   ];
 

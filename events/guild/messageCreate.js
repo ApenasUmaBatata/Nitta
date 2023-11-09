@@ -42,8 +42,8 @@ module.exports = async (bot, message, args) => {
         const novaPessoa = new Pessoa({
           user_id: userId,
           guild_id: guildId,
-          coins: 0, 
-          gems: 0, 
+          moedas: 0,
+          gemas: 0,
           xp: 0, 
           frase: fra,
           last_claimed: new Date("1970-01-01T00:00:00"),

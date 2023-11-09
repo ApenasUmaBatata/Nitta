@@ -1,5 +1,4 @@
 const { EmbedBuilder, AttachmentBuilder } = require("discord.js");
-const mongoose = require("mongoose");
 const Pessoa = require("../../schemas/Pessoa");
 
 module.exports = {
@@ -32,8 +31,8 @@ module.exports = {
             "nitta/perfilNITTA/Nitta3Expanded.jpg"
           );
           const frase = result.frase;
-          const coins = result.coins;
-          const gems = result.gems;
+          const coins = result.moedas;
+          const gems = result.gemas;
           const xp = result.xp;
           const title =
             userId === message.author.id
@@ -52,7 +51,7 @@ module.exports = {
                 inline: true,
               },
               {
-                name: "Gemas",
+                name: "Gemas celestiais",
                 value: `\`${gems}\``,
                 inline: true,
               },

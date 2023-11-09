@@ -19,7 +19,7 @@ module.exports = {
       return message.channel.send(
         "A quantidade a ser doada deve ser um número inteiro positivo."
       );
-    if (currencyType !== "coins" && currencyType !== "gems") {
+    if (currencyType !== "moedas" && currencyType !== "gemas") {
       return message.channel.send("Escolha entre doar 'coins' ou 'gems'.");
     }
 
@@ -33,16 +33,16 @@ module.exports = {
           `Este usuário não existe no banco de dados.`
         );
 
-      const currentCoins = targetData.coins || 0;
-      const currentGems = targetData.gems || 0;
+      const currentCoins = targetData.moedas || 0;
+      const currentGems = targetData.gemas || 0;
       const authorData = await Pessoa.findOne({
         user_id: message.author.id,
         guild_id: message.guild.id,
       });
       if (
         !authorData ||
-        (currencyType === "coins" && authorData.coins < amount) ||
-        (currencyType === "gems" && authorData.gems < amount)
+        (currencyType === "moedas" && authorData.moedas < amount) ||
+        (currencyType === "gemas" && authorData.gemas < amount)
       ) {
         return message.channel.send(
           "Você não tem moedas/gems suficientes para realizar essa operação."
@@ -55,7 +55,7 @@ module.exports = {
         },
         {
           [currencyType]:
-            currencyType === "coins"
+            currencyType === "moedas"
               ? currentCoins + amount
               : currentGems + amount,
         }
@@ -67,9 +67,9 @@ module.exports = {
         },
         {
           [currencyType]:
-            currencyType === "coins"
-              ? authorData.coins - amount
-              : authorData.gems - amount,
+            currencyType === "moedas"
+              ? authorData.moedas - amount
+              : authorData.gemas - amount,
         }
       );
 

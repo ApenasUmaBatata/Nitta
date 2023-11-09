@@ -3,8 +3,6 @@ const Pessoa = require("../../schemas/Pessoa");
 module.exports = async (bot, member) => {
   const userId = member.id;
   const guildId = member.guild.id;
-  const coins = 0;
-  const gems = 0;
   const xp = 0;
   const fra = "A pessoa não deixou uma frase aqui!"
 
@@ -16,8 +14,8 @@ module.exports = async (bot, member) => {
         const novaPessoa = new Pessoa({
           user_id: userId,
           guild_id: guildId,
-          coins: coins,
-          gems: gems,
+          moedas: 0,
+          gemas: 0,
           xp: xp,
           frase: fra,
           last_claimed: new Date("1970-01-01T00:00:00"),

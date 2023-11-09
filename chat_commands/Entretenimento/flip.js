@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     name: "flip",
-    aliases: ["moeda"],
+    aliases: ["virar"],
   },
   run: async (bot, message, args) => {
     var list = ["cara", "coroa"];

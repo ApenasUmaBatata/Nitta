@@ -4,8 +4,8 @@ const pessoaSchema = new mongoose.Schema({
   user_id: String,
   guild_id: String,
   last_claimed: Date,
-  coins: Number,
-  gems: Number,
+  moedas: Number,
+  gemas: Number,
   xp: Number,
   frase: String,
 });

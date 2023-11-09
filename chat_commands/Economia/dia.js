@@ -11,10 +11,7 @@ module.exports = {
     const guildId = message.guild.id;
     Pessoa.findOne({ user_id: userId, guild_id: guildId })
       .then((result) => {
-        if (!result) {
-          message.reply(
-            "Você não possui registro. Utilize o comando `registrar` para começar a receber recompensas diárias."
-          );
+        if (!result) {message.reply("Você não possui registro. Utilize o comando `registrar` para começar a receber recompensas diárias.");
         } else {
           const lastClaimedDate = result.last_claimed;
           const currentDate = new Date();
@@ -23,14 +20,14 @@ module.exports = {
 
           if (timeSinceLastClaimed >= COOLDOWN_TIME) {
             const newCoins = Math.max(Math.floor(Math.random() * 100) + 1, 20);
-            const somaNewCoins = result.coins + newCoins;
+            const somaNewCoins = result.moedas + newCoins;
             const newGems = Math.floor(Math.random() * 10) + 1;
-            const somaNewGems = result.gems + newGems;
+            const somaNewGems = result.gemas + newGems;
             Pessoa.updateOne(
               { user_id: userId, guild_id: guildId },
               {
-                coins: somaNewCoins,
-                gems: somaNewGems,
+                moedas: somaNewCoins,
+                gemas: somaNewGems,
                 last_claimed: currentDate,
               }
             )
