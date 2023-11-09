@@ -18,7 +18,7 @@ melhorar, com o desenvolvimento de novos sistemas como:
 - Dungeons & Dragons - sendo planejado;
 - Eventos automáticos - não há informações.
 - Entretenimento - em busca de atualização dos comandos de entretenimento.
-- Tornar os comandos acessiíveis para outras linguas
+- Tornar os comandos acessíveis para outras linguas
 
 ### ----------------------------------------------------------------------------
 - [Me convide para seu servidor](https://discord.com/api/oauth2/authorize?client_id=705547264537657465&permissions=8&scope=bot%20applications.commands)
