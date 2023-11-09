@@ -5,8 +5,8 @@
         "expulsar": "expulsar [@pessoa] [motivo]",
         "limpar": "limpar [Quantidade, {max 100 mensagens}]",
         "enquete": "enquete [#canal] [mensagem] e/ou enquete [mensagem]",
-        "modificaveisadm":{
-          "setprefix":"prefix [Novo prefix]"
+        "modificaveisadm": {
+          "setprefix": "prefix [Novo prefix]"
         }
       },
       "economia": {
@@ -15,19 +15,19 @@
         "pagar": "pagar [@pessoa] [quantidade] [moeda de troca {moedas ou gemas}]"
       },
       "entretenimento": {
-        "flip":"flip",
+        "flip": "flip",
         "falar": "falar [#canal] [mensagem] e/ou falar [mensagem]",
         "ação": "ação [Nome da ação] [@pessoa] e/ou acao {para visualizar as ações disponiveis}"
       },
       "geral": {
-        "user":"userinfo [@pessoa] e/ou userinfo {para ver o seu perfil}",
-        "svinfo":"svinfo",
-        "moduso":"uso [NomeComando] e/ou moduso [NomeComando]",
-        "info":"info e/ou botinfo",
+        "user": "userinfo [@pessoa] e/ou userinfo {para ver o seu perfil}",
+        "svinfo": "svinfo",
+        "moduso": "uso [NomeComando] e/ou moduso [NomeComando]",
+        "info": "info e/ou botinfo",
         "ajuda": "ajuda [NomeComando]"
       },
-      "modificaveis":{
-        "frase":"frase [Frase a ser mostrada]"
+      "modificaveis": {
+        "frase": "frase [Frase a ser mostrada]"
       }
     }
   }
