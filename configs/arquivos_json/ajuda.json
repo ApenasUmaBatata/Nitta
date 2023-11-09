@@ -1,9 +1,34 @@
 {
-    "ajuda":{
-        "pt":{
-            
+  "ajuda": {
+    "pt": {
+      "administacao": {
+        "expulsar": "expulsa um membro do servidor.",
+        "limpar": "limpa uma quantia de mensagens do servidor.",
+        "enquete": "cria uma enquete/votação para decidir algo.",
+        "modificaveisadm": {
+          "setprefix": "atualiza o prefixo a qual o bot responderá."
         }
-
+      },
+      "economia": {
+        "carteira": "visualiza sua e/ou a carteira/perfil de alguma pessoa.",
+        "dia": "pega suas moedas sagradas e gemas celestiais diariamente {a cada 24hr}.",
+        "pagar": "paga um valor para uma pessoa."
+      },
+      "entretenimento": {
+        "flip": "gira uma moeda com resposta de cara ou coroa.",
+        "falar": "faz com que o bot fale algo.",
+        "ação": "realiza uma ação."
+      },
+      "geral": {
+        "user": "visualiza o seu e/ou o perfil do discord de alguma pessoa.",
+        "svinfo": "visualiza as informações do servidor atual.",
+        "moduso": "visualiza o modo de usar os comandos.",
+        "info": "visualiza as informações do bot.",
+        "ajuda": "informa para que serve cada comando do bot."
+      },
+      "modificaveis": {
+        "frase": "adiciona uma frase ao seu perfil, sendo possível ver com o comando 'perfil'"
+      }
     }
-
+  }
 }

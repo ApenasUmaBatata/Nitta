@@ -1,12 +1,12 @@
 const { EmbedBuilder } = require("discord.js");
 const { default_prefix } = require("../../configs/config.json");
-const { modouso } = require("../../configs/arquivos_json/modUso.json");
+const { ajuda } = require("../../configs/arquivos_json/ajuda.json");
 const ServerConfig = require("../../schemas/serverConfig");
 
 module.exports = {
   config: {
-    name: "uso",
-    aliases: ["moduso"],
+    name: "ajuda",
+    aliases: ["help"],
   },
   run: async (bot, message, args) => {
     const guildId = message.guild.id;
@@ -62,68 +62,68 @@ module.exports = {
       //#region começo case modouso
       case "expulsar": {
         message.reply(
-          `\`\`\`${prefix}${modouso.pt.administacao.expulsar}\`\`\``
+          `\`\`\`${ajuda.pt.administacao.expulsar}\`\`\``
         );
         break;
       }
       case "limpar": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.administacao.limpar}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.administacao.limpar}\`\`\``);
         break;
       }
       case "enquete": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.administacao.enquete}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.administacao.enquete}\`\`\``);
         break;
       }
       case "prefix": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.administacao.modificaveisadm.setprefix}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.administacao.modificaveisadm.setprefix}\`\`\``);
         break;
       }
       case "perfil": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.economia.carteira}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.economia.carteira}\`\`\``);
         break;
       }
       case "dia": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.economia.dia}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.economia.dia}\`\`\``);
         break;
       }
       case "pagar": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.economia.pagar}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.economia.pagar}\`\`\``);
         break;
       }
       case "flip": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.entretenimento.flip}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.entretenimento.flip}\`\`\``);
         break;
       }
       case "falar": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.entretenimento.falar}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.entretenimento.falar}\`\`\``);
         break;
       }
       case "acao": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.entretenimento.ação}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.entretenimento.ação}\`\`\``);
         break;
       }
       case "user": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.geral.user}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.geral.user}\`\`\``);
         break;
       }
       case "svinfo": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.geral.svinfo}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.geral.svinfo}\`\`\``);
         break;
       }
       case "uso": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.geral.moduso}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.geral.moduso}\`\`\``);
         break;
       }
       case "info": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.geral.info}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.geral.info}\`\`\``);
         break;
       }
       case "ajuda": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.geral.ajuda}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.geral.ajuda}\`\`\``);
         break;
       }
       case "frase": {
-        message.reply(`\`\`\`${prefix}${modouso.pt.modificaveis.frase}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.modificaveis.frase}\`\`\``);
         break;
       }
       //#endregion
