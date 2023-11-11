@@ -4,7 +4,6 @@ module.exports = async (bot) => {
   console.log(
     `Bot acordou em ${bot.guilds.cache.size} servidores com ${bot.channels.cache.size} canais.`
   );
-
   let statuses = [
     {
       name: "Re:Zero - Starting Life in Another World",
@@ -24,8 +23,7 @@ module.exports = async (bot) => {
     let status = statuses[Math.floor(Math.random() * statuses.length)];
     bot.user.setActivity(status.name, { type: status.type, url: status.url });
   }, 10000);
-
-  let imgs = [
+  /*let imgs = [
     "nitta/perfilNITTA/Nitta1.jpg",
     "nitta/perfilNITTA/Nitta2.jpg",
     "nitta/perfilNITTA/Nitta3.jpg"
@@ -33,5 +31,5 @@ module.exports = async (bot) => {
   setInterval(function () {
     let img = imgs[Math.floor(Math.random() * imgs.length)];
     bot.user.setAvatar(img);
-  }, 1200000);
+  }, 1200000);*/
 };

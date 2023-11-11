@@ -52,7 +52,7 @@ module.exports = {
           )
           .setImage("https://data.whicdn.com/images/287575135/original.gif")
           .setFooter({
-            text: `Digite '${serverConfig.prefix}modouso <NomeComando>' para detalhes do comando!`,
+            text: `» Digite '${serverConfig.prefix}modouso <NomeComando>' para detalhes do comando! \n» Comando original Nitta`,
             iconURL: message.author.avatarURL(),
           });
         message.reply({ embeds: [embed] });
