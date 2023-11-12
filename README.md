@@ -29,7 +29,7 @@ melhorar, com o desenvolvimento de novos sistemas como:
 
 - Gmail - pedrohmendess007@gmail.com
 - Twitter - [SrBatataZ](https://twitter.com/SrBatataZ)
-- Discord - SrBatata#2449 // srbatatoz
+- Discord - [SrBatata#2449](discordapp.com/users/691447707134328832)
 - Grupo de suporte - [Games Are Life](https://discord.gg/rafa7XjTxS)
 
 ---
