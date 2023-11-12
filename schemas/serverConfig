@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const serverConfigSchema = new mongoose.Schema({
   guildId: String,
   prefix: String,
+  imagembv: String,
+  textbv: String,
+  canalbv: String
 });
 
 module.exports = mongoose.model("ServerConfig", serverConfigSchema);

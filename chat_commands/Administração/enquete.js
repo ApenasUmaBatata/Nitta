@@ -1,5 +1,4 @@
 const { EmbedBuilder, PermissionsBitField } = require("discord.js");
-
 module.exports = {
   config: {
     name: "enquete",
@@ -15,6 +14,12 @@ module.exports = {
           setTimeout(() => repliedMessage.delete(), 5000);
           setTimeout(() => message.delete(), 5000);
         });
+    }
+    if (args.length < 1) {
+      const { modouso } = require("../../configs/arquivos_json/modUso.json");
+      const pref = require("../../configs/modulos_js/pegarPrefix")
+      const guildId = message.guild.id;
+      return message.channel.send(`\`\`\`${await pref.obterPrefixo(guildId)}${modouso.pt.administracao.enquete}\`\`\``);
     }
 
     let canal = message.channel;

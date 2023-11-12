@@ -62,20 +62,20 @@ module.exports = {
       //#region começo case modouso
       case "expulsar": {
         message.reply(
-          `\`\`\`${ajuda.pt.administacao.expulsar}\`\`\``
+          `\`\`\`${ajuda.pt.administracao.expulsar}\`\`\``
         );
         break;
       }
       case "limpar": {
-        message.reply(`\`\`\`${ajuda.pt.administacao.limpar}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.administracao.limpar}\`\`\``);
         break;
       }
       case "enquete": {
-        message.reply(`\`\`\`${ajuda.pt.administacao.enquete}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.administracao.enquete}\`\`\``);
         break;
       }
       case "prefix": {
-        message.reply(`\`\`\`${ajuda.pt.administacao.modificaveisadm.setprefix}\`\`\``);
+        message.reply(`\`\`\`${ajuda.pt.administracao.modificaveisadm.setprefix}\`\`\``);
         break;
       }
       case "perfil": {

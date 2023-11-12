@@ -1,7 +1,7 @@
 {
   "modouso": {
     "pt": {
-      "administacao": {
+      "administracao": {
         "expulsar": "expulsar [@pessoa] [motivo]",
         "limpar": "limpar [Quantidade, {max 100 mensagens}]",
         "enquete": "enquete [#canal] [mensagem] e/ou enquete [mensagem]",

@@ -1,7 +1,7 @@
 {
   "ajuda": {
     "pt": {
-      "administacao": {
+      "administracao": {
         "expulsar": "expulsa um membro do servidor.",
         "limpar": "limpa uma quantia de mensagens do servidor.",
         "enquete": "cria uma enquete/votação para decidir algo.",
