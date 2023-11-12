@@ -1,3 +1,5 @@
+//utilizado o novo comando de carteira
+
 const { EmbedBuilder, AttachmentBuilder } = require("discord.js"); // puxando a livraria 'discord.js'
 const connection = require("../../configs/db");
 

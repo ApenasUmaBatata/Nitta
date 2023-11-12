@@ -1,3 +1,4 @@
+// utilizado no novo comando de dia
 const connection = require("../../configs/db");
 const COOLDOWN_TIME = 24 * 60 * 60 * 1000;
 
