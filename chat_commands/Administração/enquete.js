@@ -1,27 +1,27 @@
-const { EmbedBuilder, PermissionsBitField } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = {
   config: {
     name: "enquete",
     aliases: ["enquete"],
   },
   run: async (bot, message, args) => {
-    if (
-      !message.member.permissions.has(PermissionsBitField.Flags.Administrator)
-    ) {
-      return message
-        .reply(`Esse comando é apenas para \`Administradores\`.`)
-        .then((repliedMessage) => {
-          setTimeout(() => repliedMessage.delete(), 5000);
-          setTimeout(() => message.delete(), 5000);
-        });
+    const {
+      verifADM,
+      confTime,
+    } = require("../../configs/modulos_js/verifPerms");
+    if (!verifADM(message)) {
+      return confTime(message, "Esse comando é apenas para `Administradores`.");
     }
+    /*if (await verificarArgs(message, args)) {
+      return;
+    }*/
     if (args.length < 1) {
       const { modouso } = require("../../configs/arquivos_json/modUso.json");
-      const pref = require("../../configs/modulos_js/pegarPrefix")
+      const { obterPrefixo } = require("../../configs/modulos_js/pegarPrefix");
       const guildId = message.guild.id;
-      return message.channel.send(`\`\`\`${await pref.obterPrefixo(guildId)}${modouso.pt.administracao.enquete}\`\`\``);
+      return message.channel.send(`\`\`\`${await obterPrefixo(guildId)}${modouso.pt.administracao.enquete}\`\`\``
+      );
     }
-
     let canal = message.channel;
     let sugestao;
 

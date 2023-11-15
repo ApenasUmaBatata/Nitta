@@ -1,0 +1,8 @@
+const { PermissionsBitField } = require("discord.js");
+function adm(message) {
+  return `Esse comando é apenas para \`Administradores\`.`;
+}
+
+module.exports = {
+  adm,
+};
