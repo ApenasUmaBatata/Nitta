@@ -1,12 +1,13 @@
 const { EmbedBuilder, AttachmentBuilder } = require("discord.js");
 const Pessoa = require("../../schemas/Pessoa");
+const { confTime } = require("../../configs/modulos_js/conf");
 
 module.exports = {
   config: {
     name: "perfil",
-    aliases: ["carteira","saldo"],
+    aliases: ["carteira", "saldo"]
   },
-  run: async (bot, message, args, tools) => {
+  run: async (bot, message) => {
     let userId;
     if (message.mentions.members.first()) {
       userId = message.mentions.members.first().id;
@@ -46,12 +47,12 @@ module.exports = {
                 value: `\`${frase}\``,
               },
               {
-                name: "Moedas sagradas",
+                name: "<a:GAL_MoedasSagradas:1175868539245187072> Moedas sagradas",
                 value: `\`${coins}\``,
                 inline: true,
               },
               {
-                name: "Gemas celestiais",
+                name: "<a:GAL_GameCelestial:1175866704706928710> Gemas celestiais",
                 value: `\`${gems}\``,
                 inline: true,
               },
@@ -68,12 +69,7 @@ module.exports = {
               iconURL: message.author.avatarURL(),
             })
             .setTimestamp();
-          message
-            .reply({ embeds: [embed], files: [file] })
-            .then((repliedMessage) => {
-              setTimeout(() => repliedMessage.delete(), 10000);
-              setTimeout(() => message.delete(), 10000);
-            });
+          return confTime(message, { embeds: [embed], files: [file] });
         }
       })
       .catch((error) => {

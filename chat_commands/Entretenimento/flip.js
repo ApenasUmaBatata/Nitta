@@ -1,9 +1,9 @@
 module.exports = {
   config: {
     name: "flip",
-    aliases: ["virar"],
+    aliases: ["virar"]
   },
-  run: async (bot, message, args) => {
+  run: async (bot, message) => {
     var list = ["cara", "coroa"];
 
     let altstatus = list[Math.floor(Math.random() * list.length)];

@@ -3,7 +3,7 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = {
   config: {
     name: "botinfo",
-    aliases: ["info", "on", "convite", "invite", "bot", "ping"],
+    aliases: ["info", "on", "convite", "invite", "bot", "ping"]
   },
   run: async (bot, message, args) => {
     function formatUptime(ms) {

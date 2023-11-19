@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     name: "limpar",
-    aliases: ["apagar"],
+    aliases: ["apagar"]
   },
   run: async (bot, message, args) => {
     if (!message.member.permissions.has("MANAGE_MESSAGES")) {

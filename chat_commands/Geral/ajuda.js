@@ -1,22 +1,19 @@
 const { EmbedBuilder } = require("discord.js");
-const { default_prefix } = require("../../configs/config.json");
 const { ajuda } = require("../../configs/arquivos_json/ajuda.json");
-const ServerConfig = require("../../schemas/serverConfig");
 
 module.exports = {
   config: {
     name: "ajuda",
-    aliases: ["help"],
+    aliases: ["help"]
   },
   run: async (bot, message, args) => {
+    const { obterPrefixo } = require("../../configs/modulos_js/pegarPrefix");
     const guildId = message.guild.id;
-    const serverConfig = await ServerConfig.findOne({ guildId });
-    const prefix = serverConfig ? serverConfig.prefix : default_prefix;
     switch (args[0]) {
       //#region inicioCase
       case undefined: {
         const embed = new EmbedBuilder()
-          .setColor("#ff00c3")
+          .setColor("#ff0066")
           .setAuthor({
             name: "Sua ajuda chegou",
             iconURL: bot.user.avatarURL(),
@@ -52,7 +49,7 @@ module.exports = {
           )
           .setImage("https://data.whicdn.com/images/287575135/original.gif")
           .setFooter({
-            text: `» Digite '${serverConfig.prefix}ajuda <NomeComando>' para informações do comando! \n» Comando original Nitta`,
+            text: `» Digite '${await obterPrefixo(guildId)}ajuda <NomeComando>' para informações do comando! \n» Comando original Nitta`,
             iconURL: message.author.avatarURL(),
           });
         message.reply({ embeds: [embed] });

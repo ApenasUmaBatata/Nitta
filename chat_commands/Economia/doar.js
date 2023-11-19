@@ -4,9 +4,9 @@ const { default_prefix } = require("../../configs/config.json");
 module.exports = {
   config: {
     name: "pagar",
-    aliases: ["pay","doar"],
+    aliases: ["pay","doar"]
   },
-  run: async (bot, message, args, tools) => {
+  run: async (bot, message, args) => {
     if (args.length < 3) {
       return message.channel.send(`Uso correto: ${default_prefix} @membro <quantidade> [coins|gems]`);
     }

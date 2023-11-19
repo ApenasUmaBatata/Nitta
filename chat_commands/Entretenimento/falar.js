@@ -2,7 +2,7 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = {
   config: {
     name: "falar",
-    aliases: [],
+    aliases: []
   },
   run: async (bot, message, args) => {
     let canal = message.channel;

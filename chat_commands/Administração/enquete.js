@@ -1,25 +1,20 @@
 const { EmbedBuilder } = require("discord.js");
+const { modouso } = require("../../configs/arquivos_json/modUso.json");
+const { obterPrefixo } = require("../../configs/modulos_js/pegarPrefix");
+const { verifADM } = require("../../configs/modulos_js/verifPerms");
+const { confTime } = require("../../configs/modulos_js/conf")
 module.exports = {
   config: {
     name: "enquete",
-    aliases: ["enquete"],
+    aliases: ["enquete"]
   },
   run: async (bot, message, args) => {
-    const {
-      verifADM,
-      confTime,
-    } = require("../../configs/modulos_js/verifPerms");
     if (!verifADM(message)) {
       return confTime(message, "Esse comando é apenas para `Administradores`.");
     }
-    /*if (await verificarArgs(message, args)) {
-      return;
-    }*/
     if (args.length < 1) {
-      const { modouso } = require("../../configs/arquivos_json/modUso.json");
-      const { obterPrefixo } = require("../../configs/modulos_js/pegarPrefix");
       const guildId = message.guild.id;
-      return message.channel.send(`\`\`\`${await obterPrefixo(guildId)}${modouso.pt.administracao.enquete}\`\`\``
+      return confTime(message,`\`\`\`${await obterPrefixo(guildId)}${modouso.pt.administracao.enquete}\`\`\``
       );
     }
     let canal = message.channel;
@@ -32,12 +27,8 @@ module.exports = {
       sugestao = args.join(" ");
     }
     if (!sugestao) {
-      return message
-        .reply("você precisa escrever algo para enviar.")
-        .then((repliedMessage) => {
-          setTimeout(() => repliedMessage.delete(), 5000);
-          setTimeout(() => message.delete(), 5000);
-        });
+      const guildId = message.guild.id;
+      return confTime(message, `\`\`\`» Está faltando a sua frase da enquete, tente novamente! \n» ${await obterPrefixo(guildId)}${modouso.pt.administracao.enquete}\`\`\``);
     }
     if (canal) {
       let embed = new EmbedBuilder()

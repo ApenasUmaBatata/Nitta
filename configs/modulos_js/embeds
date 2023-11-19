@@ -1,0 +1,13 @@
+const { EmbedBuilder } = require("discord.js");
+
+function embed1(titulo, descricao) {
+  const embed = new EmbedBuilder()
+    .setTitle(titulo)
+    .setDescription(descricao)
+    .setColor("#ff0066"); // Cor da embed, você pode personalizar
+
+  return embed;
+}
+module.exports = {
+  embed1,
+};

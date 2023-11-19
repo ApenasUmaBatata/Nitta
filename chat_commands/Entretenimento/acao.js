@@ -4,8 +4,7 @@ const { default_prefix } = require("../../configs/config.json");
 module.exports = {
   config: {
     name: "ação",
-    aliases: ["acao"],
-    description: "teste",
+    aliases: ["acao"]
   },
   run: async (bot, message, args) => {
     if (!args[0]) {

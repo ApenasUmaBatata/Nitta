@@ -1,23 +1,26 @@
 const Pessoa = require("../../schemas/Pessoa");
 const COOLDOWN_TIME = 24 * 60 * 60 * 1000;
+const { confTime } = require("../../configs/modulos_js/conf");
 
 module.exports = {
   config: {
     name: "diaria",
-    aliases: ["dia", "daily"],
+    aliases: ["dia", "daily"]
   },
-  run: async (bot, message, args, tools) => {
+  run: async (bot, message) => {
     const userId = message.author.id;
     const guildId = message.guild.id;
     Pessoa.findOne({ user_id: userId, guild_id: guildId })
       .then((result) => {
-        if (!result) {message.reply("Você não possui registro. Utilize o comando `registrar` para começar a receber recompensas diárias.");
+        if (!result) {
+          return confTime(
+            message,
+            "Você não possui registro. Utilize o comando `registrar` para começar a receber recompensas diárias."
+          );
         } else {
           const lastClaimedDate = result.last_claimed;
           const currentDate = new Date();
-
           const timeSinceLastClaimed = currentDate - lastClaimedDate;
-
           if (timeSinceLastClaimed >= COOLDOWN_TIME) {
             const newCoins = Math.max(Math.floor(Math.random() * 100) + 1, 20);
             const somaNewCoins = result.moedas + newCoins;
@@ -32,14 +35,10 @@ module.exports = {
               }
             )
               .then(() => {
-                message
-                  .reply(
-                    `${message.author.username} você acabou de receber **🔆 ${newCoins}** moedas sagradas e **${newGems}** gemas celestiais!`
-                  )
-                  .then((repliedMessage) => {
-                    setTimeout(() => repliedMessage.delete(), 5000);
-                    setTimeout(() => message.delete(), 5000);
-                  });
+                return confTime(
+                  message,
+                  `${message.author.username} você acabou de receber **<a:GAL_MoedasSagradas:1175868539245187072> ${newCoins}** moedas sagradas e **<a:GAL_GameCelestial:1175866704706928710> ${newGems}** gemas celestiais!`
+                );
               })
               .catch((error) => {
                 console.error("Erro ao atualizar registro:", error);
@@ -50,15 +49,10 @@ module.exports = {
             const remainingMinutes = Math.floor(
               (remainingTime % (60 * 60 * 1000)) / (60 * 1000)
             );
-
-            message
-              .reply(
-                `você já coletou suas moedas sagradas hoje! Tente novamente em: ${remainingHours} horas e ${remainingMinutes} minutos.`
-              )
-              .then((repliedMessage) => {
-                setTimeout(() => repliedMessage.delete(), 5000);
-                setTimeout(() => message.delete(), 5000);
-              });
+            return confTime(
+              message,
+              `Você já realizou sua coleta diária! Tente novamente em: ${remainingHours} horas e ${remainingMinutes} minutos.`
+            );
           }
         }
       })

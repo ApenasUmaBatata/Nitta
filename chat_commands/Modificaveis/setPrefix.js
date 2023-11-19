@@ -1,4 +1,4 @@
-const { EmbedBuilder, PermissionsBitField } = require("discord.js");
+const { PermissionsBitField } = require("discord.js");
 const { default_prefix } = require("../../configs/config.json");
 const ServerConfig = require("../../schemas/serverConfig");
 module.exports = {
