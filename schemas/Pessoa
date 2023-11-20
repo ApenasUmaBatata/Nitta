@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
 
 const pessoaSchema = new mongoose.Schema({
-  user_id: String,
-  guild_id: String,
-  last_claimed: Date,
-  moedas: Number,
-  gemas: Number,
-  xp: Number,
-  frase: String,
+  _id: { type: Number, required: true },
+  user_id: { type: String, required: true },
+  guild_id: { type: String, required: true },
+  moedas: { type: Number, default: 0 },
+  gemas: { type: Number, default: 0 },
+  xp: { type: Number, default: 0 },
+  frase: { type: String, default: "A pessoa não deixou uma frase aqui!" },
+  last_claimed: { type: Date, default: new Date("1970-01-01T00:00:00") },
 });
 
 const Pessoa = mongoose.model("pessoa", pessoaSchema);

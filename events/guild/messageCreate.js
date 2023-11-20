@@ -4,6 +4,9 @@ const ServerConfig = require("../../schemas/serverConfig");
 const Pessoa = require("../../schemas/Pessoa");
 
 module.exports = async (bot, message, args) => {
+  if (message.author.bot) {
+    return;
+  }
   //#region mencionar o bot
   if (message.mentions.has(bot.user.id)) {
     const guildId = message.guild.id;
@@ -34,10 +37,21 @@ module.exports = async (bot, message, args) => {
   const fra = "A pessoa não deixou uma frase aqui!";
 
   // Verificar se o usuário já está registrado na guild
-  Pessoa.findOne({ user_id: userId, guild_id: guildId }).then((result) => {
-    if (!result) {
-      // Inserir um novo registro no MongoDB
+  try {
+    // Verificar se o usuário já está registrado na guild
+    const existingPerson = await Pessoa.findOne({
+      user_id: userId,
+      guild_id: guildId,
+    });
+
+    if (!existingPerson) {
+      // Encontrar o número total de registros e incrementar para obter o próximo _id
+      const count = await Pessoa.countDocuments({});
+      const newId = count + 1;
+
+      // Inserir um novo registro no MongoDB com o novo _id
       const novaPessoa = new Pessoa({
+        _id: newId,
         user_id: userId,
         guild_id: guildId,
         moedas: 0,
@@ -47,16 +61,12 @@ module.exports = async (bot, message, args) => {
         last_claimed: new Date("1970-01-01T00:00:00"),
       });
 
-      novaPessoa
-        .save()
-        .then(() => {
-          console.log("Usuário registrado com sucesso!");
-        })
-        .catch((error) => {
-          console.error("Erro ao salvar novo registro:", error);
-        });
+      await novaPessoa.save();
+      console.log("Usuário registrado com sucesso!");
     }
-  });
+  } catch (error) {
+    console.error("Erro ao processar registro:", error);
+  }
 
   Pessoa.findOne({ user_id: userId, guild_id: guildId })
     .then((result) => {

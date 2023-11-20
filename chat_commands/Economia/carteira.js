@@ -5,7 +5,7 @@ const { confTime } = require("../../configs/modulos_js/conf");
 module.exports = {
   config: {
     name: "perfil",
-    aliases: ["carteira", "saldo"]
+    aliases: ["carteira", "saldo"],
   },
   run: async (bot, message) => {
     let userId;
