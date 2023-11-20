@@ -1,4 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
+const { confTime } = require("../../configs/modulos_js/conf")
+
 module.exports = {
   config: {
     name: "reportar",
@@ -9,12 +11,7 @@ module.exports = {
     let problema = args.join(" ");
 
     if (!problema) {
-      return message
-        .reply("Especifique o problema encontrado!")
-        .then((repliedMessage) => {
-          setTimeout(() => repliedMessage.delete(), 5000);
-          setTimeout(() => message.delete(), 5000);
-        });
+      return confTime(message, "Especifique o problema encontrado!");
     }
     const ebd = new EmbedBuilder()
       .setColor("#ff0066")
@@ -25,5 +22,6 @@ module.exports = {
       .setFooter({ text: `Executado dia ` })
       .setTimestamp();
     canal.send({ embeds: [ebd] });
+    return confTime(message, { embeds: [ebd] });
   },
 };
