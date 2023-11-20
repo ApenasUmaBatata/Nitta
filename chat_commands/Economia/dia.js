@@ -24,7 +24,7 @@ module.exports = {
           if (timeSinceLastClaimed >= COOLDOWN_TIME) {
             const newCoins = Math.max(Math.floor(Math.random() * 100) + 1, 20);
             const somaNewCoins = result.moedas + newCoins;
-            const newGems = Math.floor(Math.random() * 10) + 1;
+            const newGems = Math.floor(Math.random() * 5) + 1;
             const somaNewGems = result.gemas + newGems;
             Pessoa.updateOne(
               { user_id: userId, guild_id: guildId },
