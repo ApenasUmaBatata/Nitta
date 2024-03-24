@@ -1,3 +1,4 @@
+/*
 const mongoose = require("mongoose");
 
 const pessoaSchema = new mongoose.Schema({
@@ -14,3 +15,4 @@ const pessoaSchema = new mongoose.Schema({
 const Pessoa = mongoose.model("pessoa", pessoaSchema);
 
 module.exports = Pessoa;
+*/

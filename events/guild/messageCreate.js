@@ -28,6 +28,7 @@ module.exports = async (bot, message, args) => {
     message.reply({ embeds: [embed] });
   }
   //#endregion
+  /*
   //#region cadastro e xp por mensagem
   const userId = message.author.id;
   const guildId = message.guild.id;
@@ -85,6 +86,7 @@ module.exports = async (bot, message, args) => {
       console.error("Erro ao buscar registro existente:", error);
     });
   //#endregion
+  */
   //#region executar comandos
   const serverConfig = await ServerConfig.findOne({ guildId });
   const prefix = serverConfig ? serverConfig.prefix : default_prefix;

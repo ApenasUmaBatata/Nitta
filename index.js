@@ -32,8 +32,8 @@ const bot = new Client({
 );
 ["command", "event"].forEach((x) => require(`./handlers/${x}`)(bot));
 
-(async () => {
+/**(async () => {
   await mongoose.connect(process.env.MONGODB_URI);
   console.log("Conectado ao banco de dados");
   bot.login(process.env.TOKEN);
-})();
+})();*/

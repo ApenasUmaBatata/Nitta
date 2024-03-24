@@ -1,3 +1,4 @@
+/*
 const mongoose = require("mongoose");
 
 const serverConfigSchema = new mongoose.Schema({
@@ -9,3 +10,4 @@ const serverConfigSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("ServerConfig", serverConfigSchema);
+*/

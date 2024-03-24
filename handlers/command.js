@@ -15,18 +15,16 @@ module.exports = (bot) => {
           bot.aliases.set(alias, command.config.name);
         });
       }
-
-      // Adicione a descrição do comando ao bot
-      bot.description.set(command.config.name, command.config.description || "Nenhuma descrição disponível.");
     }
   };
 
   const commandDirs = [
     "Administração",
-    "Economia",
+    //"Economia",
     "Entretenimento",
     "Geral",
-    "Modificaveis"
+    //"Modificaveis",
+    //"DungeonsAndDragons"
   ];
 
   commandDirs.forEach((dir) => load(dir));

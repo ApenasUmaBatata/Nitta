@@ -1,0 +1,36 @@
+const { EmbedBuilder } = require("discord.js");
+
+module.exports = {
+  config: {
+    name: "rpg",
+    aliases: ["rpg"],
+  },
+  run: async (bot, message, args) => {
+    switch (args[0]) {
+      case undefined: {
+        const embed = new EmbedBuilder()
+          .setColor("#ff0066")
+          .setAuthor({
+            name: "Sua ajuda chegou",
+            iconURL: bot.user.avatarURL(),
+          })
+          .addFields(
+            {
+              name: "Administração",
+              value: "`limpar`, `expulsar`, `enquete`",
+              inline: true
+            },            
+          )
+          .setImage("https://data.whicdn.com/images/287575135/original.gif")
+        message.reply({ embeds: [embed] });
+        break;
+      }
+      case "expulsar": {
+        message.reply(
+          `\`\`\`${ajuda.pt.administracao.expulsar}\`\`\``
+        );
+        break;
+      }
+    }
+  },
+};

@@ -1,0 +1,34 @@
+/*async function confTime(message, content, deleteDelay = 10000) {
+  const repliedMessage = await message.reply(content);
+  setTimeout(() => repliedMessage.delete(), deleteDelay);
+  setTimeout(() => message.delete(), deleteDelay);
+}
+const {
+  DaDArqueiro,
+  DaDBardo,
+  DaDPaladino,
+} = require("../../schemas/dadclasses");
+
+const verificarClasse = async (userId, guildId) => {
+  const arqueiro = await DaDArqueiro.findOne({
+    user_id: userId,
+    guild_id: guildId,
+  });
+  const bardo = await DaDBardo.findOne({ user_id: userId, guild_id: guildId });
+  const paladino = await DaDPaladino.findOne({
+    user_id: userId,
+    guild_id: guildId,
+  });
+
+  return {
+    arqueiro: !!arqueiro,
+    bardo: !!bardo,
+    paladino: !!paladino,
+  };
+};
+
+module.exports = {
+  confTime,
+  verificarClasse,
+};
+*/

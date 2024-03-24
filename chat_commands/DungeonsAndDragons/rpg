@@ -1,0 +1,37 @@
+const { EmbedBuilder } = require("discord.js");
+
+module.exports = {
+  config: {
+    name: "rpg",
+    aliases: [],
+  },
+  run: async (bot, message, args, tools) => {
+    switch (args[0]) {
+      case undefined: {
+        const embed = new EmbedBuilder()
+          .setColor("#ff0066")
+          .setAuthor({
+            name: "Todos os comandos de RPG disponíveis!",
+            iconURL: bot.user.avatarURL(),
+          })
+          .addFields(
+            {
+              name: "Informações sobre o registro",
+              value: "`classe`, `status`, `enquete`",
+              inline: true,
+            },
+            {
+              name: "bolsa",
+              value: "`poção`, `armas`, `armadura`",
+              inline: true,
+            }
+          )
+          .setImage("https://data.whicdn.com/images/287575135/original.gif");
+        /*.setFooter({text: `» Digite '${await obterPrefixo(guildId)}ajuda <NomeComando>' para informações do comando! \n» Comando original Nitta`,
+            iconURL: message.author.avatarURL(),});*/
+        message.reply({ embeds: [embed] });
+        break;
+      }
+    }
+  },
+};
